@@ -229,7 +229,7 @@ while not done:
             elif number[calls] in range(46, 61):
                 number_letter = 'G'
             elif number[calls] in range(61, 75):
-                number_letter = '0'
+                number_letter = 'O'
             # Get the text
             text = "%s %d" % (number_letter, (number[calls]))
             text_center = ((display_width / 2), (display_height / 10 * 4))

@@ -49,7 +49,7 @@ with open(filepath) as fp:
        elif line_count in range(46, 61):
            letter = 'G'
        elif line_count in range(61, 75):
-           letter = '0'
+           letter = 'O'
        synthesize_ssml(
            f'<speak> <emphasis level=\"strong\">{letter} <break time=\"400ms\"/> {line_count}</emphasis> <break time=\"1000ms\"/>{line}</speak>',
            f'assets/{line_count}'

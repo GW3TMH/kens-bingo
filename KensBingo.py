@@ -59,12 +59,6 @@ bingo_array = ['B', 'I', 'N', 'G', 'O']
 
 # Ditty displayed under number
 ditty = ['C=Check R=Reset Spacebar=Start/Pause Game.']
-filepath = 'phrases.txt'
-with open(filepath) as fp:
-   line = fp.readline().strip()
-   while line:
-       ditty.append(line)
-       line = fp.readline().strip()
 
 sounds = []
 for x in range(1, 76):
@@ -137,12 +131,12 @@ while not done:
 
             auto_play_countdown -= 1
             if auto_play_countdown < 0:
-                auto_play_countdown = 5
-
                 if mode == 1:
+                    auto_play_countdown = 12
                     mode = 0
                     pygame.event.post(pygame.event.Event(USEREVENT, key=pygame.K_SPACE))
                 else:
+                    auto_play_countdown = 5
                     mode = 1
                     pygame.event.post(pygame.event.Event(USEREVENT, key=pygame.K_c))
 
@@ -304,18 +298,19 @@ while not done:
         # Put the image of the text on the screen
         screen.blit(TextSurface, TextRect)
 
-    # Display number ditty
-    # Select the font to use, size, bold, italics
-    font = pygame.font.SysFont('Arial', int(display_height / 20), True, False)
-    # Get the text
-    text = ditty[number[calls]]
-    # Get the rectangle size
-    TextSurface = font.render(text, True, BLACK)
-    TextRect = TextSurface.get_rect()
-    # Display result
-    TextRect.center = ((display_width / 2), (display_height / 10 * 8))
-    # Put the image of the text on the screen
-    screen.blit(TextSurface, TextRect)
+    if calls == 0 and not game_started:
+        # Display number ditty
+        # Select the font to use, size, bold, italics
+        font = pygame.font.SysFont('Arial', int(display_height / 20), True, False)
+        # Get the text
+        text = ditty[number[calls]]
+        # Get the rectangle size
+        TextSurface = font.render(text, True, BLACK)
+        TextRect = TextSurface.get_rect()
+        # Display result
+        TextRect.center = ((display_width / 2), (display_height / 10 * 8))
+        # Put the image of the text on the screen
+        screen.blit(TextSurface, TextRect)
 
     # Display number of calls
     # Select the font to use, size, bold, italics

@@ -16,7 +16,7 @@ def synthesize_ssml(ssml, file_name):
     # Names of voices can be retrieved with client.list_voices().
     voice = texttospeech.types.VoiceSelectionParams(
         language_code='en-US',
-        ssml_gender=texttospeech.enums.SsmlVoiceGender.FEMALE,
+        ssml_gender=texttospeech.enums.SsmlVoiceGender.MALE,
         name='en-US-Wavenet-D'
     )
 
@@ -34,25 +34,26 @@ def synthesize_ssml(ssml, file_name):
     os.remove(f'{file_name}.mp3')
 # [END tts_synthesize_ssml]
 
-filepath = 'phrases.txt'
-with open(filepath) as fp:
-   line = fp.readline().strip()
-   line_count = 1
-   while line:
-       letter = ''
-       if line_count in range(1, 16):
-           letter = 'B'
-       elif line_count in range(16, 31):
-           letter = 'I'
-       elif line_count in range(31, 46):
-           letter = 'N'
-       elif line_count in range(46, 61):
-           letter = 'G'
-       elif line_count in range(61, 75):
-           letter = 'O'
-       synthesize_ssml(
-           f'<speak> <emphasis level=\"strong\">{letter} <break time=\"400ms\"/> {line_count}</emphasis> <break time=\"1000ms\"/>{line}</speak>',
-           f'assets/{line_count}'
-       )
-       line = fp.readline().strip()
-       line_count += 1
+
+line_count = 1
+while line_count <= 75:
+   letter = ''
+   if line_count in range(1, 16):
+       letter = 'B'
+   elif line_count in range(16, 31):
+       letter = 'I'
+   elif line_count in range(31, 46):
+       letter = 'N'
+   elif line_count in range(46, 61):
+       letter = 'G'
+   elif line_count in range(61, 75):
+       letter = 'O'
+   synthesize_ssml(
+       f'''<speak>
+          <emphasis level="strong">{letter} {line_count}.
+          <break time="2000ms"/>{letter},<break time="800ms"/>{line_count}.
+          <break time="1500ms"/>{letter}<break time="400ms"/>{line_count}</emphasis>
+        </speak>''',
+       f'assets/{line_count}'
+   )
+   line_count += 1

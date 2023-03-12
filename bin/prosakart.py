@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 #******************************************************************************
 #**** Copyright (C) 2023  Ken Williams GW3TMH (ken@kensmail.uk)            ****
 #****                                                                      ****
@@ -361,6 +360,11 @@ class Application(tk.Frame):
         self.master.destroy()
 
 
-root = tk.Tk()
-app = Application(master=root)
-app.mainloop()
+def main():
+    root = tk.Tk()
+    app = Application(master=root)
+    app.mainloop()
+
+
+if __name__=="__main__":
+	main()

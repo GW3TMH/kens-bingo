@@ -4,8 +4,8 @@
 from setuptools import setup
 
 
-package_name = 'prosakart'
-filename = 'prosakart/__init__.py'
+package_name = 'kensbingo'
+filename = 'kensbingo/__init__.py'
 
 
 def get_version():
@@ -34,17 +34,19 @@ setup(
     name=package_name,
     version=get_version(),
     install_requires=get_requirements(),
-    author='clockback',
-    author_email='elliot@p-s.co.nz',
-    description='ProSakart',
-    url='https://github.com/clockback/prosakart',
+    author='Ken Williams',
+    author_email='ken@kensmail.uk',
+    description='Kens Bingo Program',
+    url='https://github.com/GW3TMH/kens-bingo',
     long_description=get_long_description(),
     packages=[package_name, 'bin'],
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'prosakart = bin.prosakart:main'
+            'kensbingo = bin.kensbingo:main'
         ]
     },
     license='License :: OSI Approved :: MIT License',
+    
 )
+

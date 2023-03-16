@@ -1,26 +1,22 @@
-name: prosakart
+name: kensbingo               ### Program Name
 base: core18
-version: '0.1.0'
-icon: icon.png
-summary: Application for language memorization.
-description: |
-  ProSakart is a language-learning application, specifically for vocabulary
-  memorization. It is a portmanteau of Professional and Sakartvelo. Its source
-  code is written in Python.
+version: '1.0'
+summary: Kens Bingo Game.
+description:
+    Written in python3 this is my bingo software.
 
-grade: devel
-confinement: devmode
+grade: devel                  # Needs to be changed later
+confinement: devmode          # Needs to be changed later
 
 apps:
-  prosakart:
+  kensbingo:                  ### Program Name
     adapter: full
-#    command: bin/prosakart
-    command: bin/kens-bingo
+    command: bin/kensbingo    ### Program Name
     command-chain:
       - bin/debian-multiarch-triplet-provider-launch
       - bin/tcltk-launch
-    plugs:
 
+    plugs:
       - cups-control
       - desktop
       - desktop-legacy
@@ -34,7 +30,6 @@ apps:
       - x11
 
 parts:
-
   debian-multiarch-triplet-provider-launch:
     plugin: nil
     stage-snaps:
@@ -45,12 +40,11 @@ parts:
       stage-snaps:
         - tcltk-launch
 
-  prosakart:
+  kensbingo:                  ### Program Name
     plugin: python
     python-version: python3
-    source: https://github.com/GW3TMH/kens-bingo.git
-#    source: https://github.com/clockback/prosakart.git
-    source-branch: master #test
+    source: https://github.com/GW3TMH/kens-bingo.git ### Program Location
+    source-branch: main                              ### important check
     build-packages: []
     stage-packages:
       - python3-tk

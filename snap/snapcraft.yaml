@@ -1,6 +1,6 @@
 name: kensbingo               ### Program Name
 base: core18
-version: '1.0'
+version: '1.8'
 summary: Kens Bingo Game.
 description:
     Written in python3 this is my bingo software.

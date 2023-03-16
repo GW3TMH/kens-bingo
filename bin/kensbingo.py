@@ -326,10 +326,10 @@ class Application(tk.Frame):
                     
         if self.mode == 0:
             # Large Number
-            self.myCanvas.create_text(int(self.MainWidth/2), int(self.MainHeight/10 * 4), tags=("gradient",), text = "%d" % (number[self.calls]), font=('Arialbd', int(self.MainHeight/10 * 6), 'bold'), fill = BigColour)
+            self.myCanvas.create_text(int(self.MainWidth/2), int(self.MainHeight/10 * 4), tags=("gradient",), text = "%d" % (number[self.calls]), font=('DejaVu Sans', int(self.MainHeight/10 * 6), 'bold'), fill = BigColour)
         
             # Bingo Lingo
-            self.myCanvas.create_text(int(self.MainWidth/2), int(self.MainHeight/10 * 8), tags=("gradient",), text = lingo[number[self.calls]], font=('Arial', int(self.MainHeight/25), 'bold'))
+            self.myCanvas.create_text(int(self.MainWidth/2), int(self.MainHeight/10 * 8), tags=("gradient",), text = lingo[number[self.calls]], font=('DejaVu Sans', int(self.MainHeight/25), 'bold'))
 
         if self.mode == 1:
             # Check Screen
@@ -338,15 +338,15 @@ class Application(tk.Frame):
                 for c in range(1, 11):
                     i = i + 1
                     if checks[i] != 0:
-                        self.myCanvas.create_text(int(self.MainWidth/12 * c) + int(self.MainWidth/22), int(self.MainHeight/50 * 6) + int(r * self.MainHeight/14) - int(self.MainHeight/14), tags=("gradient",), text = "%d" % (checks[i]), font=('Arial', int(self.MainHeight/25), 'bold'))
+                        self.myCanvas.create_text(int(self.MainWidth/12 * c) + int(self.MainWidth/22), int(self.MainHeight/50 * 6) + int(r * self.MainHeight/14) - int(self.MainHeight/14), tags=("gradient",), text = "%d" % (checks[i]), font=('DejaVu Sans', int(self.MainHeight/25), 'bold'))
                     else:
-                        self.myCanvas.create_text(int(self.MainWidth/12 * c) + int(self.MainWidth/22), int(self.MainHeight/50 * 6) + int(r * self.MainHeight/14) - int(self.MainHeight/14), tags=("gradient",), text = '-', font=('Arial', int(self.MainHeight/25), 'bold'))                        
+                        self.myCanvas.create_text(int(self.MainWidth/12 * c) + int(self.MainWidth/22), int(self.MainHeight/50 * 6) + int(r * self.MainHeight/14) - int(self.MainHeight/14), tags=("gradient",), text = '-', font=('DejaVu Sans', int(self.MainHeight/25), 'bold'))                        
 
         # Draw Line
         self.myCanvas.create_line(int(self.MainWidth/10),int(self.MainHeight/10 * 8.8),int(self.MainWidth-self.MainWidth/10),int(self.MainHeight/10 * 8.8), tags=("gradient",), fill="black", width=int(self.MainHeight/150))   
 
         # Number Of Calls
-        self.myCanvas.create_text(int(self.MainWidth/2), int(self.MainHeight/10 * 9.5), tags=("gradient",), text = "%s %d %s %d." % (TOTAL_CALLS, self.calls, LAST_NUMBER, number[self.calls]), font=('Arial', int(self.MainHeight/25), 'bold'))
+        self.myCanvas.create_text(int(self.MainWidth/2), int(self.MainHeight/10 * 9.5), tags=("gradient",), text = "%s %d %s %d." % (TOTAL_CALLS, self.calls, LAST_NUMBER, number[self.calls]), font=('DejaVu Sans', int(self.MainHeight/25), 'bold'))
 
         return False            
 

@@ -44,7 +44,7 @@ parts:
     plugin: python
     python-version: python3
     source: https://github.com/GW3TMH/kens-bingo.git ### Program Location
-    source-branch: main                              ### important check
+    source-branch: master                              ### important check
     build-packages: []
     stage-packages:
       - python3-tk
